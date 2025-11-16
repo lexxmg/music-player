@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --bs: 16; /* базовый размер шрифта 16px */
+}
+
+@layer components {
+  .fixd {
+    max-width: 1200px;
+
+    margin: 0 auto;
+  }
+}
+
+@theme {
+  --color-c1: #ffb38a;
+  --spacing-5px: calc((5 / var(--bs)) * 1rem);
+  --spacing-10px: calc((10 / var(--bs)) * 1rem);
+  --spacing-15px: calc((15 / var(--bs)) * 1rem);
+  --spacing-20px: calc((20 / var(--bs)) * 1rem);
+  --spacing-25px: calc((25 / var(--bs)) * 1rem);
+  --spacing-30px: calc((30 / var(--bs)) * 1rem);
+  --spacing-35px: calc((35 / var(--bs)) * 1rem);
+  --spacing-40px: calc((40 / var(--bs)) * 1rem);
+  --spacing-45px: calc((45 / var(--bs)) * 1rem);
+  --spacing-50px: calc((50 / var(--bs)) * 1rem);
+  --spacing-55px: calc((55 / var(--bs)) * 1rem);
+  --spacing-60px: calc((60 / var(--bs)) * 1rem);
+  --spacing-65px: calc((65 / var(--bs)) * 1rem);
+  --spacing-70px: calc((70 / var(--bs)) * 1rem);
+  --spacing-75px: calc((75 / var(--bs)) * 1rem);
+  --spacing-80px: calc((80 / var(--bs)) * 1rem);
+  --spacing-250px: calc((250 / var(--bs)) * 1rem);
+  --text-36px: calc((36 / var(--bs)) * 1rem);
+}
+
+@utility m-text-* {
+  font-size: calc((--value(integer) / 16) * 1rem);
+}
+
+@utility m-h-* {
+  height: calc((--value(integer) / 16) * 1rem);
+}
+
+@utility m-w-* {
+  width: calc((--value(integer) / 16) * 1rem);
+}
+
+@utility m-max-w-* {
+  max-width: calc((--value(integer) / 16) * 1rem);
+}
+
+@utility px-text-* {
+  font-size: --value(integer)px;
+}
+
+
+html { font-size: 1.125rem; }
+  @media screen and (max-width:1920px) { html { font-size: calc(0.8571428571428571rem + 0.22321428571428573vw); } }
+  @media screen and (max-width:1024px) { html { font-size: calc(0.7651376146788991rem + 0.36697247706422015vw); } }
+  @media screen and (max-width:479px) { html { font-size: calc(0.7494769874476988rem + 0.8368200836820083vw); } }
