@@ -1,5 +1,4 @@
 const URL = 'https://musicfun.it-incubator.app/api/1.0/';
-const API_KEY = import.meta.env.VITE_API_KEY as string;
 
 type GetTrackListOutput = {
   data: Array<TrackListItemResource>;
@@ -61,11 +60,26 @@ type UserRef = {
   name: string;
 };
 
+type Headers = {
+  'api-key': string;
+};
+
+const prepareHeaders = (): Headers | undefined => {
+  const API_KEY = import.meta.env.VITE_API_KEY as string;
+
+  if (!API_KEY) {
+    //throw new Error('API key is not defined');
+    return undefined;
+  }
+
+  return {
+    'api-key': API_KEY,
+  };
+};
+
 export async function getTracks(): Promise<GetTrackListOutput> {
   const res = await fetch(`${URL}playlists/tracks`, {
-    headers: {
-      'api-key': API_KEY,
-    },
+    headers: prepareHeaders(),
   });
 
   await sleep(500);
@@ -90,9 +104,7 @@ type TrackDetailsAttributes = {
 
 export const getTrackDetails = async (trackId: string): Promise<GetTrackDetailsOutput> => {
   const res = await fetch(`${URL}playlists/tracks/${trackId}`, {
-    headers: {
-      'api-key': 'd77f8ba7-756c-4844-a235-3b6003c47af3',
-    },
+    headers: prepareHeaders(),
   });
 
   //await sleep(1000);
