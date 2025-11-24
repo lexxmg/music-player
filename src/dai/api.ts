@@ -91,11 +91,11 @@ type TrackDetailsAttributes = {
 export const getTrackDetails = async (trackId: string): Promise<GetTrackDetailsOutput> => {
   const res = await fetch(`${URL}playlists/tracks/${trackId}`, {
     headers: {
-      'api-key': API_KEY,
+      'api-key': 'd77f8ba7-756c-4844-a235-3b6003c47af3',
     },
   });
 
-  await sleep(1000);
+  //await sleep(1000);
   const data = res.json();
   return data;
 };
